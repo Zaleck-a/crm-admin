@@ -1,0 +1,26 @@
+<div class="input-group">
+    <div class="input-group-prepend">
+      <button type="button" 
+              (click)="setPrcent( -5 )"
+              [ngClass]="btnClass">
+          <i class="fa fa-minus"></i>
+      </button>
+    </div>
+    <!-- /btn-group -->
+    <input type="number" 
+           class="form-control"
+           [ngClass]="{'is-invalid': progress > 100 || progress < 0}"
+           min="0"
+           max="100"
+           placeholder="Porcentaje"
+           (ngModelChange)="onChange($event)"
+           [(ngModel)]="progress">
+
+    <div class="input-group-append">
+        <button type="button" 
+                (click)="setPrcent( 5 )"
+                [ngClass]="btnClass">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+</div>

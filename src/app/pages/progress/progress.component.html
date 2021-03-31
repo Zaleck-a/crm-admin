@@ -1,1 +1,63 @@
-<p>progress works!</p>
+<!-- START PROGRESS BARS -->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Progress Bars Different Sizes</h3>
+      </div>
+      <div class="card-body">
+        <div class="progress progress-sm active">
+
+          <div class="progress-bar bg-primary progress-bar-striped" 
+               [style.width]="getProgress1"
+               role="progressbar" 
+               >
+               
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="progress progress-sm active">
+
+          <div class="progress-bar bg-primary progress-bar-striped" 
+               [style.width]="getProgress2"
+               role="progressbar" 
+               >
+               
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END PROGRESS BARS -->
+
+<div class="row">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+
+            <app-increase (value) = "progress1 = $event" 
+                          [value] = "progress1">
+            </app-increase>
+            
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+          <div class="card-body">
+  
+            <app-increase (value) =" progress2 = $event" 
+                          [value] = "progress2"
+                          [btnClass]= "'btn-info'">
+            </app-increase>
+              
+          </div>
+        </div>
+      </div>
+</div>
+
