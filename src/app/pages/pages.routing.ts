@@ -9,6 +9,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { Grafic1Component } from './grafic1/grafic1.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'progress', component: ProgressComponent, data: {title: 'Progress'} },
       { path: 'grafic1', component: Grafic1Component, data: {title: 'Graficas'} },
       { path: 'promesas', component: PromesasComponent, data: {title: 'Promesas'} },
+      { path: 'profile', component: ProfileComponent, data: {title: 'Profile'} },
       { path: 'rxjs', component: RxjsComponent, data: {title: 'Rxjs'} },
     ]
   }

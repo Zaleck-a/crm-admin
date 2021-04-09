@@ -1,0 +1,113 @@
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle" [src]="user.imageUrl"
+                                alt="User profile picture">
+                        </div>
+
+                        <h3 class="profile-username text-center">{{ user.name }}</h3>
+
+                        <p class="text-muted text-center">Software Engineer</p>
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#ajustes" data-toggle="tab">Ajustes</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="#avatar" data-toggle="tab">Avatar</a></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane" id="avatar">
+
+                                <div class="form-group row">
+                                    <label for="inputEmail" class="col-sm-2 col-form-label">Avatar</label>
+                                    <div class="col-sm-10">
+                                        <figure class="figure">
+                                            <img *ngIf="!imgTemp" [src]="user.imageUrl" class="figure-img img-fluid rounded">
+                                            <img *ngIf="imgTemp" [src]="imgTemp" class="figure-img img-fluid rounded">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputSkills" class="col-sm-2 col-form-label"></label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control file" type="file" 
+                                        (change)="changeImage($event.target.files[0])">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="offset-sm-2 col-sm-10">
+                                        <button type="button" 
+                                                class="btn btn-danger" 
+                                                [disabled]="!imageUpdate"
+                                                (click)="upImage()">Cambiar imagen</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="tab-pane active" id="ajustes">
+                                <form class="form-horizontal"
+                                        [formGroup]="profileForm"
+                                        (submit)="updateProfile()">
+
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" 
+                                                    class="form-control" 
+                                                    id="inputName" 
+                                                    placeholder="Nombre del usuario"
+                                                    formControlName="name">
+                                                    
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" 
+                                                    class="form-control" 
+                                                    id="inputEmail"
+                                                    placeholder="Email" 
+                                                    formControlName="email"
+                                                    [readOnly]="user.google">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="offset-sm-2 col-sm-10">
+                                            <button type="submit" 
+                                                    class="btn btn-danger"
+                                                    [disabled]="profileForm.invalid">Guardar cambios</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div><!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
