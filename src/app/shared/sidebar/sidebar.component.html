@@ -1,9 +1,9 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="../../../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a routerLink="/" class="brand-link">
+      <img src="http://siikcrm.siiksolutions.com/files/media/logo.png" alt="AdminCRM Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Admin CRM</span>
     </a>
 
     <!-- Sidebar -->
@@ -32,12 +32,12 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li *ngFor="let item of menuItems" class="nav-item menu-open">
-            <a href="/" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li *ngFor="let item of menuItems" class="nav-item">
+            <a href="#" class="nav-link active">
+              <i [class]="item.icon"></i>
               <p>
                 {{item.title}}
                 <i class="right fas fa-angle-left"></i>

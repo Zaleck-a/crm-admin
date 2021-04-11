@@ -1,0 +1,43 @@
+<div class="background-modal"
+     [class.hide]="modalImageService.hideModal">
+    <div class="open-modal">
+        <div class="modal fade show" id="modal-default" style="display: block;"
+            aria-modal="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Cargar imagen</h4>
+                        <button type="button" 
+                                class="close" 
+                                data-dismiss="modal" 
+                                aria-label="Close"
+                                (click)="closeModal()">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Seleccionar imagen…</h4>
+
+                            <div class="text-center m-3">
+                                    <img *ngIf="!imgTemp" [src]="modalImageService.img" class="img-avatar">
+                                    <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
+                                
+                            </div>
+                            <input class="form-control file" type="file" 
+                                (change)="changeImage($event.target.files[0])">
+
+
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeModal()">Cancelar</button>
+                        <button type="button" 
+                                class="btn btn-primary"
+                                (click)="upImage()">Actualizar imagen</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+</div>

@@ -37,9 +37,9 @@
 
                                 <div class="form-group row">
                                     <label for="inputEmail" class="col-sm-2 col-form-label">Avatar</label>
-                                    <div class="col-sm-10">
-                                        <figure class="figure">
-                                            <img *ngIf="!imgTemp" [src]="user.imageUrl" class="figure-img img-fluid rounded">
+                                    <div class="col-sm-10 text-center">
+                                        <figure class="figure max-width=50%">
+                                            <img *ngIf="!imgTemp" [src]="user.imageUrl" class="figure-img rounded mx-auto d-block">
                                             <img *ngIf="imgTemp" [src]="imgTemp" class="figure-img img-fluid rounded">
                                         </figure>
                                     </div>

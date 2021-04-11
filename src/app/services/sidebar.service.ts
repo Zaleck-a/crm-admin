@@ -16,6 +16,15 @@ export class SidebarService {
         { title: 'Promesas', url: 'promesas'},
         { title: 'Rxjs', url: 'rxjs'},
       ]
+    },
+    {
+      title: 'Mantenimiento',
+      icon: 'nav-icon fas fa-toolbox',
+      submenu: [
+        { title: 'Usuarios', url: 'users'},
+        { title: 'Empresas', url: 'companies'},
+        { title: 'Clientes', url: 'customers'},
+      ]
     }
   ];
 }

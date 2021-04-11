@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 
 import { RegisterForm } from './../interfaces/register-form-interface';
 import { LoginForm } from '../interfaces/login-form-interface';
+import { updateUser } from '../interfaces/update-users-interface';
+
 import { User } from '../models/user.model';
 
 const baseURL = environment.baseUrl;
@@ -34,6 +36,14 @@ export class UserService {
 
   get id(): string{
     return this.user.id || '';
+  }
+
+  get headers(){
+    return {
+      headers: {
+        'x-token': this.token
+      }
+    };
   }
 
   googleInit(){
@@ -93,16 +103,12 @@ export class UserService {
 
   updateProfile( data: { email: string, name: string, role: string } ){
 
-    data = {
+    data={
       ...data,
       role: this.user.role
-    };
+    }
 
-    return this.http.put(`${ baseURL}/users/${this.id}`, data, {
-      headers: {
-        'x-token': this.token
-      }
-    });
+    return this.http.put(`${ baseURL}/users/${this.id}`, data, this.headers );
   }
 
 
@@ -126,4 +132,37 @@ export class UserService {
                     );
   }
 
+  uploadUsers(from: number = 0){
+
+
+    const url = `${baseURL}/users?from=${from}`;
+
+    return this.http.get<updateUser>(url, this.headers)
+          .pipe(
+            map( res => {
+              const users = res.users.map(
+                user => new User(user.name, user.email, '', user.img, user.google, user.role, user.id)
+              );
+
+              return{
+                total: res.total,
+                users
+              };
+            })
+          );
+
+  }
+
+  deleteUser( user: User ) {
+
+      // /users/idUser
+      const url = `${ baseURL }/users/${ user.id }`;
+      return this.http.delete( url, this.headers );
+  }
+
+  saveUser( user: User ) {
+
+    return this.http.put(`${ baseURL }/users/${ user.id }`, user, this.headers );
+
+  }
 }
