@@ -5,6 +5,8 @@ import { environment } from '../../environments/environment';
 import { map } from 'rxjs/operators';
 
 import { User } from '../models/user.model';
+import { Customer } from '../models/customer.model';
+import { Company } from './../models/company.model';
 
 const baseUrl = environment.baseUrl;
 
@@ -28,11 +30,22 @@ export class SearchesService {
     };
   }
 
-  private usersTransform( resultados: any[] ): User[] {
+  private usersTransform( results: any[] ): User[] {
 
-    return resultados.map(
+    return results.map(
       user => new User(user.name, user.email, '', user.img, user.google, user.role, user.id )
     );
+  }
+
+
+  private companiesTransform( results: any[] ): Company[] {
+
+    return results;
+  }
+
+  private customersTransform( results: any[] ): Customer[] {
+
+    return results;
   }
 
   search(type: 'users'|'customers'|'companies', term: string ) {
@@ -47,6 +60,12 @@ export class SearchesService {
               switch ( type ) {
                 case 'users':
                   return this.usersTransform( res.results )
+
+                case 'companies':
+                  return this.companiesTransform( res.results )
+
+                case 'customers':
+                  return this.customersTransform( res.results )  
 
                 default:
                   return [];

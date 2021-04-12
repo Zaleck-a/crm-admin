@@ -13,6 +13,9 @@ import { ProfileComponent } from './profile/profile.component';
 
 // Maintenance
 import { UsersComponent } from './maintenance/users/users.component';
+import { CustomersComponent } from './maintenance/customers/customers.component';
+import { CompaniesComponent } from './maintenance/companies/companies.component';
+import { CustomerComponent } from './maintenance/customers/customer.component';
 
 const routes: Routes = [
 
@@ -29,7 +32,10 @@ const routes: Routes = [
       { path: 'rxjs', component: RxjsComponent, data: {title: 'Rxjs'} },
 
       // Maintenance
-      { path: 'users', component: UsersComponent, data: {title: 'Usuario de aplicación'} },
+      { path: 'users', component: UsersComponent, data: {title: 'Mantenimiento de usuarios'} },
+      { path: 'customers', component: CustomersComponent, data: {title: 'Mantenimiento de clientes'} },
+      { path: 'customer/:id', component: CustomerComponent, data: {title: 'Detalle de cliente'} },
+      { path: 'companies', component: CompaniesComponent, data: {title: 'Mantenimiento de empresas'} },
     ]
   }
 

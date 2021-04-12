@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar empresa"
+                        #txtTerm
+                        (keyup)="search(txtTerm.value)">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+            <div class="card-header">
+              <h3 class="card-title">
+                <i class="fas fa-building"></i>
+                Empresas
+              </h3>
+              <div class="text-right">
+                <button (click)="openSweetAlert()" class="btn btn-primary btn-sm">
+                  Crear Empresa
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf="loading" class="card-body text-center animate__animated animate__fadeIn animate__fast">
+              <div class="spinner-border m-3" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+            <!-- /.card-header -->
+            <div *ngIf="!loading" class="card-body animate__animated animate__fadeIn animate__fast">
+              <h6 class="card-subtitle">Total de empresas: ({{companies.length}})</h6>
+
+                <div class="table-responsve">
+                    <table class="table table-bordered">
+                        <thead>                  
+                          <tr>
+                            <th>Foto</th>
+                            <th>Nombre</th>
+                            <th class="text-nowrap">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let company of companies" class="text-center">
+                            <td>
+                              <img (click)="openModal(company)"
+                                   [src]="company.img | image:'companies'" 
+                                   [alt]="company.name"
+                                   class="img-fluid img-circle avatar cursor">
+                            </td>
+                            <td>
+                                <input type="text"
+                                        class="form-control"
+                                        placeholder="Nombre de la empresa"
+                                        [(ngModel)]="company.name">
+                            </td>
+                            <td class="text-nowrap text-center">
+                                <a (click)="saveChanges(company)" class="text-info cursor">
+                                  <i class="fas fa-save"></i>
+                                </a>
+                                &nbsp;
+                                <a (click)="deleteCompany(company)" class="text-danger cursor">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>

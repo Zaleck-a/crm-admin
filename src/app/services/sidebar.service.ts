@@ -22,8 +22,8 @@ export class SidebarService {
       icon: 'nav-icon fas fa-toolbox',
       submenu: [
         { title: 'Usuarios', url: 'users'},
-        { title: 'Empresas', url: 'companies'},
         { title: 'Clientes', url: 'customers'},
+        { title: 'Empresas', url: 'companies'},
       ]
     }
   ];

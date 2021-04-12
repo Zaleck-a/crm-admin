@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Modulos
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 import { Grafic1Component } from './grafic1/grafic1.component';
@@ -17,6 +18,9 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
+import { CompaniesComponent } from './maintenance/companies/companies.component';
+import { CustomersComponent } from './maintenance/customers/customers.component';
+import { CustomerComponent } from './maintenance/customers/customer.component';
 
 
 @NgModule({
@@ -29,6 +33,9 @@ import { UsersComponent } from './maintenance/users/users.component';
     RxjsComponent,
     ProfileComponent,
     UsersComponent,
+    CompaniesComponent,
+    CustomersComponent,
+    CustomerComponent,
   ],
   exports: [
     Grafic1Component,
@@ -45,7 +52,8 @@ import { UsersComponent } from './maintenance/users/users.component';
     RouterModule,
     SharedModule,
     ComponentModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
 })
 export class PagesModule { }
