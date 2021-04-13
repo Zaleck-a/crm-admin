@@ -5,7 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class SidebarService {
 
-  menu: any [] = [
+
+  public menu = [];
+
+  loadMenu(){
+    this.menu = JSON.parse(localStorage.getItem('menu')) || []; 
+
+  }
+
+
+
+/*   menu: any [] = [
     {
       title: 'Dashboard',
       icon: 'nav-icon fas fa-tachometer-alt',
@@ -26,5 +36,5 @@ export class SidebarService {
         { title: 'Empresas', url: 'companies'},
       ]
     }
-  ];
+  ]; */
 }

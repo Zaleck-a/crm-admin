@@ -46,6 +46,10 @@ export class UserService {
     };
   }
 
+  get role(): 'ADMIN_ROLE' | 'USER_ROLE'{
+    return this.user.role;
+  }
+
   googleInit(){
 
     return new Promise( resolve => {
@@ -59,8 +63,14 @@ export class UserService {
     });
   }
 
+  saveLocalStorage( token: string, menu: any){
+      localStorage.setItem('token', token);
+      localStorage.setItem('menu', JSON.stringify(menu) );
+  }
+
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
 
     this.auth2.signOut().then( () => {
 
@@ -82,7 +92,7 @@ export class UserService {
         const { email, google, name, role, img, id } = res.user;
         this.user = new User( name, email, '', img, google, role, id);
 
-        localStorage.setItem('token', res.token);
+        this.saveLocalStorage(res.token, res.menu);
         return true;
       }),
       catchError( error => of(false))
@@ -93,8 +103,8 @@ export class UserService {
 
     return this.http.post(`${ baseURL}/users`, formData)
                     .pipe(
-                      tap( (resp: any) => {
-                          localStorage.setItem('token', resp.token);
+                      tap( (res: any) => {
+                        this.saveLocalStorage(res.token, res.menu);
                         }
                       )
                     );
@@ -115,8 +125,8 @@ export class UserService {
   login( formData: LoginForm){
     return this.http.post(`${ baseURL}/login`, formData)
                     .pipe(
-                      tap( (resp: any) => {
-                          localStorage.setItem('token', resp.token);
+                      tap( (res: any) => {
+                        this.saveLocalStorage(res.token, res.menu);
                         }
                       )
                     );
@@ -125,8 +135,8 @@ export class UserService {
   loginGoogle( token ){
     return this.http.post(`${ baseURL}/login/google`, {token})
                     .pipe(
-                      tap( (resp: any) => {
-                          localStorage.setItem('token', resp.token);
+                      tap( (res: any) => {
+                        this.saveLocalStorage(res.token, res.menu);
                         }
                       )
                     );

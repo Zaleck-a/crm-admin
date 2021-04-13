@@ -21,7 +21,7 @@ export class RegisterComponent{
     email:     ['', [Validators.required, Validators.email] ],
     password:  ['', [ Validators.required ]],
     password2: ['', [ Validators.required]],
-    terms:     [ true, Validators.required ],
+    terms:     [ false, [Validators.required, Validators.requiredTrue] ],
   }, {
     validators: this.passwordsSame('password', 'password2')
   });

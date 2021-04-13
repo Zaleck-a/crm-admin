@@ -48,6 +48,14 @@ export class SearchesService {
     return results;
   }
 
+
+
+  searchGlobal(term: string){
+    const url = `${ baseUrl }/search/${ term }`;
+    return this.http.get( url, this.headers );
+  }
+
+
   search(type: 'users'|'customers'|'companies', term: string ) {
 
     // http://localhost:3000/api/search/collection/users/e

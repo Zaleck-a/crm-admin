@@ -1,0 +1,153 @@
+<!-- Users -->
+<div class="card card-solid animate__animated animate__fadeIn animate__fast">
+    <div *ngIf="users.length === 0" class="alert alert-info">
+        <p class="mb-0">
+            No existen usuarios con este termino
+        </p>
+    </div>
+    <div *ngIf="users.length > 0" class="card-header">
+        <h3 class="card-title">Usuarios</h3>
+    </div>
+    <div *ngIf="users.length > 0" class="card-body pb-0">
+        <div class="row d-flex align-items-stretch">
+            <div *ngFor="let user of users" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                    <div class="card-header text-muted border-bottom-0">
+                        Usuario
+                    </div>
+                    <div class="card-body pt-0">
+                        
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>{{user.name}}</b></h2>
+                            </div>
+                            <div class="col-5 text-center">
+                                <img [src]="user.img | image:'users' " alt="" class="img-circle img-fluid w300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a href="#" class="btn btn-sm btn-primary">
+                                <i class="fas fa-user"></i> Ver perfil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- /.card-footer -->
+</div>
+
+<!-- Customers -->
+<div class="card card-solid animate__animated animate__fadeIn animate__fast">
+    <div *ngIf="customers.length === 0" class="alert alert-info">
+        <p class="mb-0">
+            No existen clientes con este termino
+        </p>
+    </div>
+    <div *ngIf="customers.length > 0" class="card-header">
+        <h3 class="card-title">Clientes</h3>
+    </div>
+    <div *ngIf="customers.length > 0" class="card-body pb-0">
+        <div class="row d-flex align-items-stretch">
+            <div *ngFor="let customer of customers" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                    <div class="card-header text-muted border-bottom-0">
+                        Cliente
+                    </div>
+                    <div class="card-body pt-0">
+                        
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>{{customer.name}}</b></h2>
+                            </div>
+                            <div class="col-5 text-center">
+                                <img [src]="customer.img | image:'customers' " alt="" class="img-circle img-fluid w300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a [routerLink]="['/dashboard/customer', customer._id]" class="btn btn-sm btn-primary">
+                                <i class="fas fa-user"></i> Ver perfil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- /.card-footer -->
+</div>
+
+
+<!-- Companies -->
+<div class="card card-solid animate__animated animate__fadeIn animate__fast">
+    <div *ngIf="companies.length === 0" class="alert alert-info">
+        <p class="mb-0">
+            No existen empresas con este termino
+        </p>
+    </div>
+    <div *ngIf="companies.length > 0" class="card-header">
+        <h3 class="card-title">Empresas</h3>
+    </div>
+    <div *ngIf="companies.length > 0" class="card-body pb-0">
+        <div class="row d-flex align-items-stretch">
+            <div *ngFor="let company of companies" class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                <div class="card bg-light">
+                    <div class="card-header text-muted border-bottom-0">
+                        Empresa
+                    </div>
+                    <div class="card-body pt-0">
+                        
+                        <div class="row">
+                            <div class="col-7">
+                                <h2 class="lead"><b>{{company.name}}</b></h2>
+                            </div>
+                            <div class="col-5 text-center">
+                                <img [src]="company.img | image:'companies' " alt="" class="img-circle img-fluid w300">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-right">
+                            <a href="#" class="btn btn-sm btn-primary">
+                                <i class="fas fa-user"></i> Ver perfil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer">
+        <nav aria-label="Contacts Page Navigation">
+            <ul class="pagination justify-content-center m-0">
+                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- /.card-footer -->
+</div>
