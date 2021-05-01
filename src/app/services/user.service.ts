@@ -142,6 +142,15 @@ export class UserService {
                     );
   }
 
+  loadUser() {
+
+    const url = `${ baseURL }/users/total`;
+    return this.http.get( url, this.headers )
+              .pipe(
+                map( (res: {ok: boolean, users: User[] }) => res.users )
+              );
+  }
+
   uploadUsers(from: number = 0){
 
 

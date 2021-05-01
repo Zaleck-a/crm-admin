@@ -13,6 +13,7 @@ import { UsersComponent } from './maintenance/users/users.component';
 import { CustomersComponent } from './maintenance/customers/customers.component';
 import { CompaniesComponent } from './maintenance/companies/companies.component';
 import { CustomerComponent } from './maintenance/customers/customer.component';
+import { ProjectsComponent } from './maintenance/projects/projects.component';
 import { SearchComponent } from './search/search.component';
 
 import { AdminGuard } from '../guards/admin.guard';
@@ -21,7 +22,7 @@ import { AdminGuard } from '../guards/admin.guard';
 const childRoutres: Routes = [
 
       { path: '', component: DashboardComponent, data: {title: 'Dashboard'}},
-      { path: 'progress', component: ProgressComponent, data: {title: 'Progress'} },
+      { path: 'progress', component: ProgressComponent, data: {title: 'Progreso'} },
       { path: 'search/:term', component: SearchComponent, data: {title: 'Busqueda'} },
       { path: 'grafic1', component: Grafic1Component, data: {title: 'Graficas'} },
       { path: 'promesas', component: PromesasComponent, data: {title: 'Promesas'} },
@@ -30,7 +31,8 @@ const childRoutres: Routes = [
 
       // Maintenance
       { path: 'customers', component: CustomersComponent, data: {title: 'Mantenimiento de clientes'} },
-      { path: 'customer/:id', component: CustomerComponent, data: {title: 'Detalle de cliente'} },
+      { path: 'projects', component: ProjectsComponent, data: {title: 'Mantenimiento de proyectos'} },
+      { path: 'customer/:id', component: CustomerComponent, data: {title: 'Detalle del cliente'} },
       { path: 'companies', component: CompaniesComponent, data: {title: 'Mantenimiento de empresas'} },
 
       // Admin routes

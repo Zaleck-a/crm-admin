@@ -10,7 +10,7 @@ import { retry, take, map, filter } from 'rxjs/operators';
 })
 export class RxjsComponent implements OnDestroy{
 
-  public intervalSubs: Subscription;
+  //public intervalSubs: Subscription;
 
   constructor() {
 
@@ -23,10 +23,10 @@ export class RxjsComponent implements OnDestroy{
     ); */
 
 
-    this.intervalSubs = this.retornaInterval().subscribe( console.log );
+    //this.intervalSubs = this.retornaInterval().subscribe( console.log );
   }
   ngOnDestroy(): void {
-    this.intervalSubs.unsubscribe();
+   // this.intervalSubs.unsubscribe();
   }
 
 

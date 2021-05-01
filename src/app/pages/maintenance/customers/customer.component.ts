@@ -108,9 +108,6 @@ export class CustomerComponent implements OnInit {
           this.router.navigateByUrl(`/dashboard/customer/${res.customer._id}`)
         })
     }
-
-
-
   }
 
 }

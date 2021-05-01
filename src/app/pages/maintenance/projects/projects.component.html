@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar Proyecto"
+                        #txtTerm
+                        (keyup)="search(txtTerm.value)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+            <div class="card-header">
+              <h3 class="card-title">
+                <i class="fas fa-clipboard"></i>
+                Proyectos
+              </h3>
+              <div class="text-right">
+                <button (click)="openSweetAlert()" class="btn btn-primary btn-sm">
+                  Crear Proyecto
+                </button>
+              </div>
+            </div>
+
+            <div *ngIf="loading" class="card-body text-center animate__animated animate__fadeIn animate__fast">
+              <div class="spinner-border m-3" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+            
+            <div *ngIf="!loading" class="card-body animate__animated animate__fadeIn animate__fast">
+              <h6 class="card-subtitle">Total de proyectos: ({{projects.length}})</h6>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>                  
+                          <tr>
+                            <th class="w150">Proyecto</th>
+                            <th class="w150">Cliente</th>
+                            <th class="w150">Encargado</th>
+                            <th class="w150">Estatus</th>
+                            <th class="w150">Fechas</th>
+                            <th class="w150">Descripción</th>
+                            <th class="w100">Acciones</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let project of projects" class="text-center">
+                            <td>
+                                <input type="text"
+                                        class="form-control"
+                                        placeholder="Nombre del proyecto"
+                                        [(ngModel)]="project.name">
+                            </td>
+                            <td>
+                                <select class="form-control" [(ngModel)]="project.customer">
+                                    <option [ngValue]="undefined" hidden>Elige un cliente</option>
+                                    <option *ngFor="let customer of customers" value="{{customer._id}}">{{customer.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                              <select class="form-control" [(ngModel)]="project.manager">
+                                <option [ngValue]="undefined" hidden>Elige un encargado</option>
+                                <option *ngFor="let manager of managers" value="{{manager.id}}">{{manager.name}}</option>
+                              </select>
+                            </td>
+                            <td>
+                                <select class="form-control"
+                                    [(ngModel)]="project.status"
+                                    >
+                                    <option value="Iniciado">Iniciado</option>
+                                    <option value="En curso">En curso</option>
+                                    <option value="Completado">Completado</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input  type="text"
+                                        [(bsValue)]="project.dates"
+                                        placeholder="Elige un rango de fechas"
+                                        class="form-control containerClass"
+                                        bsDaterangepicker
+                                        [bsConfig]="{ adaptivePosition: true, 
+                                                      rangeInputFormat: 'DD-MM-YYYY', 
+                                                      containerClass: 'theme-blue' }">
+                            </td>
+                            <td>
+                                <textarea [(ngModel)]="project.description" class="form-control" rows="1"></textarea>
+                            </td>
+                            <td class="text-nowrap text-center">
+                                <a (click)="saveChanges(project)" class="text-info cursor">
+                                    <i class="fas fa-save"></i>
+                                  </a>
+                                &nbsp;
+                                <a (click)="deleteCompany(project)" class="text-danger cursor">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                </a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,11 +7,12 @@ import { IncreaseComponent } from './increase/increase.component';
 import { FormsModule } from '@angular/forms';
 import { DountComponent } from './dount/dount.component';
 import { ModalImageComponent } from './modal-image/modal-image.component';
+import { PolarComponent } from './polar/polar.component';
 
 
 
 @NgModule({
-  declarations: [IncreaseComponent, DountComponent, ModalImageComponent],
+  declarations: [IncreaseComponent, DountComponent, ModalImageComponent, PolarComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -20,7 +21,8 @@ import { ModalImageComponent } from './modal-image/modal-image.component';
   exports: [
     IncreaseComponent,
     DountComponent,
-    ModalImageComponent
+    ModalImageComponent,
+    PolarComponent
   ]
 })
 export class ComponentModule { }

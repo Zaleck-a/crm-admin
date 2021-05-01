@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 // Modulos
@@ -18,6 +20,7 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './maintenance/users/users.component';
+import { ProjectsComponent } from './maintenance/projects/projects.component';
 import { CompaniesComponent } from './maintenance/companies/companies.component';
 import { CustomersComponent } from './maintenance/customers/customers.component';
 import { CustomerComponent } from './maintenance/customers/customer.component';
@@ -34,6 +37,7 @@ import { SearchComponent } from './search/search.component';
     RxjsComponent,
     ProfileComponent,
     UsersComponent,
+    ProjectsComponent,
     CompaniesComponent,
     CustomersComponent,
     CustomerComponent,
@@ -55,7 +59,9 @@ import { SearchComponent } from './search/search.component';
     SharedModule,
     ComponentModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
 })
 export class PagesModule { }

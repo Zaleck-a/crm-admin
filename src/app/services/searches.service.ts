@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { Customer } from '../models/customer.model';
 import { Company } from './../models/company.model';
+import { Project } from '../models/project.model';
 
 const baseUrl = environment.baseUrl;
 
@@ -48,6 +49,11 @@ export class SearchesService {
     return results;
   }
 
+  private projectsTransform( results: any[] ): Project[]{
+    
+    return results;
+  }
+
 
 
   searchGlobal(term: string){
@@ -56,7 +62,7 @@ export class SearchesService {
   }
 
 
-  search(type: 'users'|'customers'|'companies', term: string ) {
+  search(type: 'users'|'customers'|'companies'|'projects', term: string ) {
 
     // http://localhost:3000/api/search/collection/users/e
 
@@ -74,6 +80,9 @@ export class SearchesService {
 
                 case 'customers':
                   return this.customersTransform( res.results )  
+
+                case 'projects':
+                  return this.projectsTransform( res.results )    
 
                 default:
                   return [];

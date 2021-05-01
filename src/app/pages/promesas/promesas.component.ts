@@ -11,10 +11,10 @@ export class PromesasComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getUsers().then((usuarios) => {
+    /* this.getUsers().then((usuarios) => {
       console.log(usuarios);
     });
-
+ */
 
 
     /* const promesa = new Promise ( (res, rej) => {
