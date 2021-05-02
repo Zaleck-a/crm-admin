@@ -56,7 +56,7 @@ export class ProjectsComponent implements OnInit {
     this.loading = true;
     this.projectServices.loadProject()
         .subscribe( projects => {
-          console.log(projects);
+          
           this.loading = false;
           this.projects = projects;
         })
@@ -79,7 +79,7 @@ export class ProjectsComponent implements OnInit {
 
 
    saveChanges( project: Project ) {
-    console.log(project);
+    
     this.projectServices.updateProject( project._id, project.name, project.customer ,project.manager,
                                         project.status, project.dates, project.description )
         .subscribe( res => {

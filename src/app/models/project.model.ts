@@ -17,6 +17,7 @@ export class Project {
         public dates?: Array<Date>,
         public description?: string,
         public status?: string,
+        public price?: string ,
         public _delete?: boolean,
         public user?: _ProyectUser,
         public customer?: Customer

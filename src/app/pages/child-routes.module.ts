@@ -15,6 +15,7 @@ import { CompaniesComponent } from './maintenance/companies/companies.component'
 import { CustomerComponent } from './maintenance/customers/customer.component';
 import { ProjectsComponent } from './maintenance/projects/projects.component';
 import { SearchComponent } from './search/search.component';
+import { SalesComponent } from './sales/sales.component';
 
 import { AdminGuard } from '../guards/admin.guard';
 
@@ -22,6 +23,7 @@ import { AdminGuard } from '../guards/admin.guard';
 const childRoutres: Routes = [
 
       { path: '', component: DashboardComponent, data: {title: 'Dashboard'}},
+      { path: 'sales', component: SalesComponent, data: {title: 'Ventas'}},
       { path: 'progress', component: ProgressComponent, data: {title: 'Progreso'} },
       { path: 'search/:term', component: SearchComponent, data: {title: 'Busqueda'} },
       { path: 'grafic1', component: Grafic1Component, data: {title: 'Graficas'} },

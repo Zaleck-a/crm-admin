@@ -71,6 +71,12 @@ export class ProjectService {
                     );
   }
 
+  updatePrice( _id: string, name: string, price: string){
+    const url = `${ baseUrl }/projects/${ _id }`;
+
+    return this.http.put( url, { name, price }, this.headers );
+  }
+
   deleteProject( _id: string ) {
 
     const url = `${ baseUrl }/projects/${ _id }`;

@@ -25,6 +25,7 @@ import { CompaniesComponent } from './maintenance/companies/companies.component'
 import { CustomersComponent } from './maintenance/customers/customers.component';
 import { CustomerComponent } from './maintenance/customers/customer.component';
 import { SearchComponent } from './search/search.component';
+import { SalesComponent } from './sales/sales.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { SearchComponent } from './search/search.component';
     CustomersComponent,
     CustomerComponent,
     SearchComponent,
+    SalesComponent,
   ],
   exports: [
     Grafic1Component,

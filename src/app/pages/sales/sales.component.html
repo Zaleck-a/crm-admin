@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -5,7 +6,7 @@
 
                 <input type="text"
                         class="form-control"
-                        placeholder="Buscar cliente"
+                        placeholder="Buscar venta"
                         #txtTerm
                         (keyup)="search(txtTerm.value)">
 
@@ -20,14 +21,9 @@
 
             <div class="card-header">
               <h3 class="card-title">
-                <i class="fas fa-user-tag"></i>
-                Clientes
+                <i class="fas fa-file-invoice-dollar"></i>
+                Ventas
               </h3>
-              <div class="text-right">
-                <a routerLink="/dashboard/customer/new" class="btn btn-primary btn-sm">
-                  Crear Cliente
-                </a>
-              </div>
             </div>
 
             <div *ngIf="loading" class="card-body text-center animate__animated animate__fadeIn animate__fast">
@@ -38,34 +34,42 @@
 
             <!-- /.card-header -->
             <div *ngIf="!loading" class="card-body animate__animated animate__fadeIn animate__fast">
-              <h6 class="card-subtitle">Total de clientes: {{customers.length}}</h6>
+              <h6 class="card-subtitle">Total de ventas: ({{sales.length}})</h6>
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead>                  
                           <tr>
-                            <th>Foto</th>
-                            <th>Nombre</th>
+                            <th >Producto</th>
+                            <th >Descripción</th>
+                            <th class="w150">Precio + IVA</th>
                             <th class="text-nowrap">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let customer of customers" class="text-center">
+                          <tr *ngFor="let sale of sales"  class="text-center">
                             <td>
-                                <img (click)="openModal(customer)"
-                                   [src]="customer.img | image:'customers'" 
-                                   [alt]="customer.name"
-                                   class="img-fluid img-circle avatar cursor">
+                              {{sale.name}}
                             </td>
-                            <td>{{customer.name}}</td>
+                            <td>
+                                {{sale.description}}
+                            </td>
+                            <td>
+                                <input disabled 
+                                        #inputElement 
+                                        type="text" 
+                                        class="form-control" 
+                                        [id]="sale._id" 
+                                        [ngModel]="sale.price"
+                                        (ngModelChange)="sale.price=$event" >
+                            </td>
                             <td class="text-nowrap text-center">
-                                <a [routerLink]="['/dashboard', 'customer', customer._id]" class="text-peimary cursor">
-                                  <i class="fas fa-pencil-alt"></i>
+                                <a (click)="changeInput(inputElement.id)" class="text-primary cursor">
+                                    <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                &nbsp;
-                                <a (click)="deleteCustomer(customer)" class="text-danger cursor">
-                                    <i class="fas fa-trash">
-                                    </i>
+                                  &nbsp;
+                                <a (click)="saveChanges(sale)" class="text-info cursor">
+                                  <i class="fas fa-save"></i>
                                 </a>
                             </td>
                           </tr>
