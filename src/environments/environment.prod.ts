@@ -2,5 +2,5 @@
 
 export const environment = {
   production: true,
-  baseUrl: 'http:/localhost:3000/api'
+  baseUrl: 'https://admin-crm-backend.herokuapp.com/api'
 };
