@@ -18,8 +18,7 @@
                             <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
 
                         </div>
-                        <input class="form-control file" type="file" (change)="changeImage($event.target.files[0])">
-
+                        <input class="form-control file" type="file" (change)="changeImage($event.target['files'][0])">
 
                     </div>
                     <div class="modal-footer justify-content-between">

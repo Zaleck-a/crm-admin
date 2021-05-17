@@ -43,7 +43,6 @@ export class ModalImageComponent implements OnInit {
 
   upImage(){
 
-
     const id = this.modalImageService.id;
     const type = this.modalImageService.type;
 
